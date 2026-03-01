@@ -1,87 +1,24 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix inline letter rendering and add animated letter-style tribute pages for the Sacred Six",
+  "title": "Update all friend card paragraphs to warm and playful third-person group tone",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Fix HeroSection letter-by-letter animation to render characters inline instead of stacked vertically",
+      "summary": "Rewrite all seven friend tribute message paragraphs in friendsData.ts to use a warm and playful third-person collective voice, as if the entire friend group is hyping up each person together",
       "acceptanceCriteria": [
-        "The hero title text renders with characters/words flowing inline, not one character per line.",
-        "Letter-by-letter animation still plays as intended.",
-        "No horizontal overflow or clipping on standard viewport widths."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/HeroSection.tsx",
-          "operation": "modify",
-          "description": "Update the letter-by-letter title reveal implementation to apply inline or inline-block display styling to each animated letter span, ensuring characters flow naturally in a line rather than stacking vertically. Preserve the existing stagger animation timing and fade-in effects while fixing the layout issue."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Create a dedicated Tribute Letters section with scroll-triggered handwritten-letter-style cards for each of the six friends",
-      "acceptanceCriteria": [
-        "All six friends appear as distinct letter-style sections in the correct order: Tiya, Aaliya, Aaheli, Anshima, Anya, Manasvi.",
-        "Each section displays the emoji, name, title, subtitle, and full tribute message.",
-        "Scroll-triggered fade/slide-in entrance animation plays for each section as it enters the viewport.",
-        "Typography feels like an elegant handwritten letter — serif/display fonts, gold and warm-white tones, no generic card styling.",
-        "The section integrates into App.tsx alongside the existing sections."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/TributeLettersSection.tsx",
-          "operation": "create",
-          "description": "Create a new full-page section component that renders all six friends as handwritten-letter-style cards with scroll-triggered entrance animations. Each card should display the friend's emoji icon, name in uppercase gold typography, title, subtitle/epithet, and full prose tribute message. Use the existing dark gold aesthetic with serif/display fonts from the Tailwind config. Implement scroll-triggered fade/slide-in animations using the useScrollFadeIn hook for each letter card as it enters the viewport. Style the cards to feel like elegant handwritten letters with appropriate padding, subtle borders or frames, and rich typography hierarchy."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Import the new TributeLettersSection component and integrate it into the page flow between the SacredSixSection and TestimonySection. Ensure the section receives the same layered background treatment (behind MughalArchBackground and GoldParticles) and maintains consistent spacing with other sections."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Implement six unique per-section background animations for the Tribute Letters page matching each friend's designated animation",
-      "acceptanceCriteria": [
-        "Each of the six letter sections renders its designated animation as a background or ambient effect.",
-        "Animations are looping, subtle, and do not obscure the letter text.",
-        "Existing TributeAnimations components (heartbeat, constellation, crown, ripple) are reused or extended rather than duplicated.",
-        "No animation causes layout shifts or performance jank on scroll."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/TributeAnimations.tsx",
-          "operation": "modify",
-          "description": "Extend the existing animation components to add two new animation types: 'sun' (radiant warm sun glow emanating behind text for Anya) and 'shimmer' (soft fabric-like shimmer wave for Manasvi). Ensure all six animation types (heartbeat for Tiya, constellation for Aaliya, crown for Aaheli, ripple for Anshima, sun for Anya, shimmer for Manasvi) are exportable as standalone background components. Keep animations subtle, looping, and performant."
-        },
-        {
-          "path": "frontend/src/data/friendsData.ts",
-          "operation": "modify",
-          "description": "Update the AnimationType union to include 'sun' and 'shimmer' types. Verify that each friend object's animationType property matches the correct assignment: Tiya=heartbeat, Aaliya=constellation, Aaheli=crown, Anshima=ripple, Anya=sun, Manasvi=shimmer."
-        },
-        {
-          "path": "frontend/src/components/TributeLettersSection.tsx",
-          "operation": "modify",
-          "description": "Integrate the designated background animation for each friend's letter card by rendering the appropriate animation component from TributeAnimations behind the letter content. Position animations as subtle ambient effects that do not interfere with text readability. Ensure animations are positioned absolutely or fixed relative to each card container and do not cause layout shifts during scroll or animation loops."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Update friendsData.ts with complete tribute message content for all six friends as specified",
-      "acceptanceCriteria": [
-        "Each friend object in friendsData.ts contains: name, emoji, title, subtitle/epithet, and full prose tribute message.",
-        "Text content matches the user-provided copy exactly.",
-        "Existing photo filenames and animation type assignments are preserved."
+        "All seven friend entries in friendsData.ts have their tribute message paragraphs rewritten in third-person collective voice",
+        "The tone is warm and playful throughout — not formal or somber",
+        "Each paragraph reads as if the whole group is speaking together (e.g., uses 'we', 'us', 'the whole group', 'everyone knows')",
+        "No paragraph uses first-person singular ('I') or second-person ('you') voice",
+        "Friend names, titles, epithets, and all other fields remain unchanged",
+        "The updated text renders correctly on the friend cards and tribute panels"
       ],
       "file_operations": [
         {
           "path": "frontend/src/data/friendsData.ts",
           "operation": "modify",
-          "description": "Update each of the six friend objects to include the complete title, subtitle/epithet, and full multi-line prose tribute message exactly as specified in the BuildRequest: Tiya (THE HEARTBINDER / The One Who Stayed), Aaliya (THE QUIET INTELLECT / She Who Thinks in Starlight), Aaheli (THE STEADFAST ONE / Guardian of Unspoken Comfort), Anshima (THE TRUTHBEARER / Soft Voice, Strong Soul), Anya (THE LIGHTBRINGER / Smile of Steady Warmth), Manasvi (THE EMBRACE / Keeper of Warmth). Add a new 'message' or 'tribute' field to the Friend interface to hold the full prose content. Preserve all existing fields including photo filenames and animationType assignments."
+          "description": "Rewrite the tribute message field for all seven friend entries to use a warm, playful third-person collective tone (e.g., 'We all know her as...', 'Ask anyone in the group and they'll tell you...', 'She's the one we all turn to when...'). Transform each multi-line tribute paragraph so it reads as if the entire friend group is collectively celebrating and hyping up that person. Preserve all other fields (id, name, title, epithet, animationType, emoji) exactly as they are. Ensure the voice is consistently warm and playful across all entries, avoiding first-person singular or second-person perspective."
         }
       ]
     }

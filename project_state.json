@@ -1,37 +1,16 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "A tribute/dedication web app with animated letter-style pages for 6 people (Tiya, Aaliya, Aaheli, Anshima, Anya, Manasvi), each with unique custom animations and heartfelt messages in an elegant dark aesthetic.",
-  "architectural_notes": [
-    "Dark moody aesthetic with gold accent typography throughout",
-    "Each tribute section has a unique custom animation (heartbeat, constellation, crown glow, ripple, radiant glow, shimmer)"
-  ],
-  "known_issues": [
-    "Letters/characters were rendering on separate lines instead of inline"
-  ],
-  "isFixRequest": true,
+  "summary": "A friend group tribute/birthday webpage featuring friend cards, each with a warm and playful third-person paragraph written as if the whole group is collectively hyping up each person.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-fix-the-herosection-component-so-that-the-staggered-letter-by-letter-title-reveal-renders-all-characters-inline-on-a-single-line-or-wrapping-naturally-not-each-character-stacked-on-its-own-line-ensure-the-animated-letter-spans-use-inline-or-inline-block-display-so-words-and-sentences-flow-correctly",
-      "title": "Fix the HeroSection component so that the staggered letter-by-letter title reveal renders all characters inline on a single line (or wrapping naturally), not each character stacked on its own line. Ensure the animated letter spans use inline or inline-block display so words and sentences flow correctly.",
+      "id": "feature-rewrite-all-seven-friend-tribute-message-paragraphs-in-frontend-src-data-friendsdata-ts-to-use-a-warm-and-playful-third-person-tone-written-as-if-the-entire-friend-group-is-collectively-hyping-up-each-person-e-g-we-all-know-her-as-ask-anyone-in-the-group-and-they-ll-tell-you-she-s-the-one-we-all-turn-to-when-the-voice-should-feel-like-a-group-shoutout-not-a-personal-message-from-one-person-apply-this-to-every-friend-entry-in-the-array",
+      "title": "Rewrite all seven friend tribute message paragraphs in `frontend/src/data/friendsData.ts` to use a warm and playful third-person tone, written as if the entire friend group is collectively hyping up each person (e.g., 'We all know her as...', 'Ask anyone in the group and they'll tell you...', 'She's the one we all turn to when...'). The voice should feel like a group shoutout, not a personal message from one person. Apply this to every friend entry in the array.",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-create-a-dedicated-full-page-tribute-letters-section-or-route-page-that-presents-each-of-the-six-friends-tiya-aaliya-aaheli-anshima-anya-manasvi-as-a-beautifully-crafted-handwritten-letter-style-card-with-scroll-triggered-entrance-animations-each-letter-must-include-an-emoji-icon-name-in-gold-caps-title-e-g-the-heartbinder-subtitle-epithet-and-the-full-heartfelt-prose-message-provided-for-each-person-the-page-must-use-the-existing-dark-gold-aesthetic-rich-serif-display-typography-and-gold-accent-styling-consistent-with-the-rest-of-the-site",
-      "title": "Create a dedicated full-page 'Tribute Letters' section (or route/page) that presents each of the six friends (Tiya, Aaliya, Aaheli, Anshima, Anya, Manasvi) as a beautifully crafted handwritten-letter-style card with scroll-triggered entrance animations. Each letter must include: an emoji icon, name in gold caps, title (e.g. 'THE HEARTBINDER'), subtitle epithet, and the full heartfelt prose message provided for each person. The page must use the existing dark gold aesthetic, rich serif/display typography, and gold accent styling consistent with the rest of the site.",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-the-six-unique-per-section-background-animations-for-the-tribute-letters-page-matching-the-following-assignments-tiya-heartbeat-pulse-glow-in-gold-aaliya-slow-moving-constellation-of-stars-aaheli-golden-crown-outline-glow-effect-anshima-gentle-ripple-animation-that-plays-on-text-reveal-anya-radiant-warm-sun-glow-emanating-behind-text-manasvi-soft-fabric-like-shimmer-shimmer-wave-reuse-or-extend-the-existing-tributeanimations-tsx-components-where-applicable-animations-must-be-subtle-and-not-distract-from-reading-the-letter-text",
-      "title": "Implement the six unique per-section background animations for the Tribute Letters page, matching the following assignments: Tiya — heartbeat pulse glow in gold; Aaliya — slow moving constellation of stars; Aaheli — golden crown outline glow effect; Anshima — gentle ripple animation that plays on text reveal; Anya — radiant warm sun glow emanating behind text; Manasvi — soft fabric-like shimmer/shimmer wave. Reuse or extend the existing TributeAnimations.tsx components where applicable. Animations must be subtle and not distract from reading the letter text.",
-      "reqIds": [
-        "REQ-3"
       ],
       "version": 1
     }
@@ -39,22 +18,8 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Fix letters/characters rendering on separate lines — display properly inline",
+      "summary": "Update all friend card paragraphs to warm and playful third-person tone, as if the whole group is collectively talking about each person",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Animated tribute letter-style page for 6 people with unique per-section animations (heartbeat glow, constellations, crown glow, ripple, radiant glow, shimmer), scroll-triggered entrances, dark aesthetic, gold typography",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "Update friendsData.ts to include the full tribute message content for each of the six friends exactly as specified by the user: Tiya (THE HEARTBINDER / The One Who Stayed), Aaliya (THE QUIET INTELLECT / She Who Thinks in Starlight), Aaheli (THE STEADFAST ONE / Guardian of Unspoken Comfort), Anshima (THE TRUTHBEARER / Soft Voice, Strong Soul), Anya (THE LIGHTBRINGER / Smile of Steady Warmth), Manasvi (THE EMBRACE / Keeper of Warmth). Ensure each object includes the title, epithet/subtitle, emoji, and multi-line tribute message as prose.",
-      "reqIds": [
-        "REQ-4"
-      ],
       "status": "pending"
     }
   ],

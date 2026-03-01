@@ -3,6 +3,8 @@ import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
 import type { Friend } from '../data/friendsData';
 import TributeAnimation from './TributeAnimations';
+import FriendPortrait from './FriendPortrait';
+import PhotoUpload from './PhotoUpload';
 
 interface TributePanelProps {
   friend: Friend;
@@ -69,9 +71,9 @@ export default function TributePanel({ friend, onClose }: TributePanelProps) {
         }}
       >
         {/* Photo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 relative">
           <div
-            className="relative"
+            className="relative overflow-hidden"
             style={{
               width: '180px',
               height: '220px',
@@ -79,10 +81,9 @@ export default function TributePanel({ friend, onClose }: TributePanelProps) {
               boxShadow: '0 0 20px rgba(212,175,55,0.2), 0 0 40px rgba(212,175,55,0.1)',
             }}
           >
-            <img
-              src={`/assets/generated/${friend.photoFilename}`}
-              alt={`${friend.name} portrait`}
-              className="w-full h-full object-cover"
+            <FriendPortrait
+              friendId={friend.id}
+              friendName={friend.name}
               style={{ filter: 'sepia(20%) contrast(1.05)' }}
             />
             {/* Gold overlay */}
@@ -98,6 +99,11 @@ export default function TributePanel({ friend, onClose }: TributePanelProps) {
           <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2" style={{ borderColor: '#D4AF37', margin: '-1px' }} />
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2" style={{ borderColor: '#D4AF37', margin: '-1px' }} />
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2" style={{ borderColor: '#D4AF37', margin: '-1px' }} />
+
+          {/* Upload control below photo */}
+          <div className="mt-3 flex justify-center">
+            <PhotoUpload friendId={friend.id} friendName={friend.name} />
+          </div>
         </div>
 
         {/* Text content */}

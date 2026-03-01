@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Fix inline letter rendering in the hero title animation and add a full animated "Tribute Letters" page section for the Sacred Six friends.
+**Goal:** Rewrite all seven friend tribute message paragraphs in `friendsData.ts` to use a warm, playful third-person collective voice, as if the whole friend group is speaking together about each person.
 
 **Planned changes:**
-- Fix `HeroSection` component so staggered letter-by-letter animated spans render inline (not stacked on separate lines), preserving the animation while allowing natural text flow.
-- Update `friendsData.ts` to include each friend's full tribute content: name, emoji, title (e.g. "THE HEARTBINDER"), subtitle epithet, and full prose tribute message for all six: Tiya, Aaliya, Aaheli, Anshima, Anya, Manasvi.
-- Create a "Tribute Letters" section integrated into `App.tsx` that presents each of the six friends as an elegant handwritten-letter-style card with scroll-triggered fade/slide-in entrance animations, using the existing dark gold aesthetic, serif/display typography, and gold accent styling.
-- Implement per-friend background animations: Tiya — heartbeat pulse glow; Aaliya — moving constellation of stars; Aaheli — golden crown outline glow; Anshima — gentle ripple on text reveal; Anya — radiant warm sun glow; Manasvi — soft fabric shimmer wave. Reuse/extend existing `TributeAnimations.tsx` components.
+- Update every friend entry's tribute message paragraphs in `frontend/src/data/friendsData.ts` to use collective third-person voice (e.g., "we", "us", "everyone knows", "the whole group")
+- Ensure no paragraph uses first-person singular ("I") or second-person ("you") voice
+- Keep all other fields (id, name, title, epithet, animationType, emoji) unchanged
 
-**User-visible outcome:** The hero title now animates correctly with all characters flowing inline. A new scroll-driven Tribute Letters section appears on the page, presenting each of the six friends as a beautifully styled letter with their unique ambient background animation, elegant typography, and full heartfelt tribute message.
+**User-visible outcome:** Friend cards and tribute panels display paragraphs that read like a group shoutout — warm, playful, and written as if the entire friend group is collectively celebrating each person.

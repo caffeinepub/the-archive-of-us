@@ -1,73 +1,34 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-01T05:35:26.930Z",
+  "generatedAt": "2026-03-01T10:03:51.419Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 4,
-    "implemented": 3,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Fix the HeroSection component so that the staggered letter-by-letter title reveal renders all characters inline on a single line (or wrapping naturally), not each character stacked on its own line. Ensure the animated letter spans use inline or inline-block display so words and sentences flow correctly.",
+        "summary": "Rewrite all seven friend tribute message paragraphs in `frontend/src/data/friendsData.ts` to use a warm and playful third-person tone, written as if the entire friend group is collectively hyping up each person (e.g., 'We all know her as...', 'Ask anyone in the group and they'll tell you...', 'She's the one we all turn to when...'). The voice should feel like a group shoutout, not a personal message from one person. Apply this to every friend entry in the array.",
         "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/HeroSection.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/HeroSection.tsx"
-        ]
-      },
-      {
-        "id": "REQ-2",
-        "summary": "Create a dedicated full-page 'Tribute Letters' section (or route/page) that presents each of the six friends (Tiya, Aaliya, Aaheli, Anshima, Anya, Manasvi) as a beautifully crafted handwritten-letter-style card with scroll-triggered entrance animations. Each letter must include: an emoji icon, name in gold caps, title (e.g. 'THE HEARTBINDER'), subtitle epithet, and the full heartfelt prose message provided for each person. The page must use the existing dark gold aesthetic, rich serif/display typography, and gold accent styling consistent with the rest of the site.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/TributeLettersSection.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/TributeLettersSection.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Implement the six unique per-section background animations for the Tribute Letters page, matching the following assignments: Tiya — heartbeat pulse glow in gold; Aaliya — slow moving constellation of stars; Aaheli — golden crown outline glow effect; Anshima — gentle ripple animation that plays on text reveal; Anya — radiant warm sun glow emanating behind text; Manasvi — soft fabric-like shimmer/shimmer wave. Reuse or extend the existing TributeAnimations.tsx components where applicable. Animations must be subtle and not distract from reading the letter text.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/TributeAnimations.tsx",
-          "frontend/src/data/friendsData.ts",
-          "frontend/src/components/TributeLettersSection.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/TributeLettersSection.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Update friendsData.ts to include the full tribute message content for each of the six friends exactly as specified by the user: Tiya (THE HEARTBINDER / The One Who Stayed), Aaliya (THE QUIET INTELLECT / She Who Thinks in Starlight), Aaheli (THE STEADFAST ONE / Guardian of Unspoken Comfort), Anshima (THE TRUTHBEARER / Soft Voice, Strong Soul), Anya (THE LIGHTBRINGER / Smile of Steady Warmth), Manasvi (THE EMBRACE / Keeper of Warmth). Ensure each object includes the title, epithet/subtitle, emoji, and multi-line tribute message as prose.",
-        "status": "missing",
         "plannedFiles": [
           "frontend/src/data/friendsData.ts"
         ],
-        "matchedFiles": []
+        "matchedFiles": [
+          "frontend/src/data/friendsData.ts"
+        ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/App.tsx",
-    "frontend/src/components/HeroSection.tsx",
-    "frontend/src/components/TributeLettersSection.tsx",
-    "frontend/src/index.css",
+    "frontend/src/data/friendsData.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

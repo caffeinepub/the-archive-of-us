@@ -238,7 +238,7 @@ export default function TributeLettersSection() {
             letterSpacing: '0.25em',
           }}
         >
-          THE SACRED SIX
+          THE SACRED SEVEN
         </h2>
         <p
           className="font-body italic"
@@ -279,14 +279,14 @@ export default function TributeLettersSection() {
           }}
         />
         <p
-          className="font-body italic"
+          className="font-serif italic"
           style={{
             color: 'rgba(212,175,55,0.35)',
-            letterSpacing: '0.2em',
             fontSize: '0.8rem',
+            letterSpacing: '0.3em',
           }}
         >
-          ✦ ✦ ✦
+          ✦ END OF LETTERS ✦
         </p>
       </div>
     </section>

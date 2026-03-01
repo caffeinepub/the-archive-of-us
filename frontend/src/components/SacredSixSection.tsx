@@ -3,6 +3,8 @@ import { friends } from '../data/friendsData';
 import type { Friend } from '../data/friendsData';
 import TributePanel from './TributePanel';
 import { useScrollFadeIn } from '../hooks/useScrollFadeIn';
+import FriendPortrait from './FriendPortrait';
+import PhotoUpload from './PhotoUpload';
 
 export default function SacredSixSection() {
   const [selectedFriend, setSelectedFriend] = useState<Friend | null>(null);
@@ -32,7 +34,7 @@ export default function SacredSixSection() {
           className="font-serif font-black tracking-widest gold-glow"
           style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '0.2em' }}
         >
-          THE SACRED SIX
+          THE SACRED SEVEN
         </h2>
         <div
           className="mx-auto mt-6"
@@ -48,7 +50,7 @@ export default function SacredSixSection() {
       {/* Portrait grid */}
       <div
         ref={gridRef}
-        className={`grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto fade-in-section ${gridVisible ? 'is-visible' : ''}`}
+        className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto fade-in-section ${gridVisible ? 'is-visible' : ''}`}
       >
         {friends.map((friend, index) => (
           <FriendCard
@@ -79,9 +81,8 @@ interface FriendCardProps {
 
 function FriendCard({ friend, index, onClick }: FriendCardProps) {
   return (
-    <button
-      onClick={onClick}
-      className="relative overflow-hidden group cursor-pointer card-shimmer text-left w-full"
+    <div
+      className="relative overflow-hidden group card-shimmer"
       style={{
         border: '1px solid rgba(212,175,55,0.3)',
         background: 'rgba(10,10,20,0.8)',
@@ -89,25 +90,29 @@ function FriendCard({ friend, index, onClick }: FriendCardProps) {
         animationDelay: `${index * 0.1}s`,
       }}
       onMouseEnter={(e) => {
-        const el = e.currentTarget as HTMLButtonElement;
+        const el = e.currentTarget as HTMLDivElement;
         el.style.borderColor = 'rgba(212,175,55,0.7)';
         el.style.boxShadow = '0 0 20px rgba(212,175,55,0.2), 0 0 40px rgba(212,175,55,0.1)';
         el.style.transform = 'translateY(-4px)';
       }}
       onMouseLeave={(e) => {
-        const el = e.currentTarget as HTMLButtonElement;
+        const el = e.currentTarget as HTMLDivElement;
         el.style.borderColor = 'rgba(212,175,55,0.3)';
         el.style.boxShadow = 'none';
         el.style.transform = 'translateY(0)';
       }}
-      aria-label={`View tribute for ${friend.name}`}
     >
-      {/* Photo */}
-      <div className="relative overflow-hidden" style={{ aspectRatio: '3/4' }}>
-        <img
-          src={`/assets/generated/${friend.photoFilename}`}
-          alt={`${friend.name} portrait`}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      {/* Clickable photo area */}
+      <button
+        onClick={onClick}
+        className="relative overflow-hidden w-full cursor-pointer text-left"
+        style={{ aspectRatio: '3/4', display: 'block' }}
+        aria-label={`View tribute for ${friend.name}`}
+      >
+        <FriendPortrait
+          friendId={friend.id}
+          friendName={friend.name}
+          className="transition-transform duration-700 group-hover:scale-105"
           style={{ filter: 'sepia(15%) contrast(1.05) brightness(0.9)' }}
         />
         {/* Dark overlay */}
@@ -124,10 +129,10 @@ function FriendCard({ friend, index, onClick }: FriendCardProps) {
             background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.08) 0%, transparent 70%)',
           }}
         />
-      </div>
+      </button>
 
       {/* Text overlay */}
-      <div className="absolute bottom-0 left-0 right-0 p-4">
+      <div className="absolute bottom-0 left-0 right-0 p-4 pointer-events-none">
         <p
           className="font-serif font-black tracking-widest gold-glow-subtle"
           style={{ fontSize: 'clamp(0.75rem, 1.5vw, 1rem)', letterSpacing: '0.2em' }}
@@ -148,9 +153,17 @@ function FriendCard({ friend, index, onClick }: FriendCardProps) {
         </p>
       </div>
 
+      {/* Upload control — bottom-right, above text overlay */}
+      <div
+        className="absolute bottom-2 right-2 flex items-center z-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <PhotoUpload friendId={friend.id} friendName={friend.name} />
+      </div>
+
       {/* Corner ornaments */}
-      <div className="absolute top-2 left-2 w-3 h-3 border-t border-l" style={{ borderColor: 'rgba(212,175,55,0.5)' }} />
-      <div className="absolute top-2 right-2 w-3 h-3 border-t border-r" style={{ borderColor: 'rgba(212,175,55,0.5)' }} />
-    </button>
+      <div className="absolute top-2 left-2 w-3 h-3 border-t border-l pointer-events-none" style={{ borderColor: 'rgba(212,175,55,0.5)' }} />
+      <div className="absolute top-2 right-2 w-3 h-3 border-t border-r pointer-events-none" style={{ borderColor: 'rgba(212,175,55,0.5)' }} />
+    </div>
   );
 }
