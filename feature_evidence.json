@@ -1,0 +1,60 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-fix-the-herosection-component-so-that-the-staggered-letter-by-letter-title-reveal-renders-all-characters-inline-on-a-single-line-or-wrapping-naturally-not-each-character-stacked-on-its-own-line-ensure-the-animated-letter-spans-use-inline-or-inline-block-display-so-words-and-sentences-flow-correctly",
+      "featureTitle": "Fix the HeroSection component so that the staggered letter-by-letter title reveal renders all characters inline on a single line (or wrapping naturally), not each character stacked on its own line. Ensure the animated letter spans use inline or inline-block display so words and sentences flow correctly.",
+      "files": [
+        "frontend/src/components/HeroSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-dedicated-full-page-tribute-letters-section-or-route-page-that-presents-each-of-the-six-friends-tiya-aaliya-aaheli-anshima-anya-manasvi-as-a-beautifully-crafted-handwritten-letter-style-card-with-scroll-triggered-entrance-animations-each-letter-must-include-an-emoji-icon-name-in-gold-caps-title-e-g-the-heartbinder-subtitle-epithet-and-the-full-heartfelt-prose-message-provided-for-each-person-the-page-must-use-the-existing-dark-gold-aesthetic-rich-serif-display-typography-and-gold-accent-styling-consistent-with-the-rest-of-the-site",
+      "featureTitle": "Create a dedicated full-page 'Tribute Letters' section (or route/page) that presents each of the six friends (Tiya, Aaliya, Aaheli, Anshima, Anya, Manasvi) as a beautifully crafted handwritten-letter-style card with scroll-triggered entrance animations. Each letter must include: an emoji icon, name in gold caps, title (e.g. 'THE HEARTBINDER'), subtitle epithet, and the full heartfelt prose message provided for each person. The page must use the existing dark gold aesthetic, rich serif/display typography, and gold accent styling consistent with the rest of the site.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/TributeLettersSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-six-unique-per-section-background-animations-for-the-tribute-letters-page-matching-the-following-assignments-tiya-heartbeat-pulse-glow-in-gold-aaliya-slow-moving-constellation-of-stars-aaheli-golden-crown-outline-glow-effect-anshima-gentle-ripple-animation-that-plays-on-text-reveal-anya-radiant-warm-sun-glow-emanating-behind-text-manasvi-soft-fabric-like-shimmer-shimmer-wave-reuse-or-extend-the-existing-tributeanimations-tsx-components-where-applicable-animations-must-be-subtle-and-not-distract-from-reading-the-letter-text",
+      "featureTitle": "Implement the six unique per-section background animations for the Tribute Letters page, matching the following assignments: Tiya — heartbeat pulse glow in gold; Aaliya — slow moving constellation of stars; Aaheli — golden crown outline glow effect; Anshima — gentle ripple animation that plays on text reveal; Anya — radiant warm sun glow emanating behind text; Manasvi — soft fabric-like shimmer/shimmer wave. Reuse or extend the existing TributeAnimations.tsx components where applicable. Animations must be subtle and not distract from reading the letter text.",
+      "files": [
+        "frontend/src/components/TributeLettersSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

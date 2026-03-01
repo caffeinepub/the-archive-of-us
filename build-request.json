@@ -1,0 +1,113 @@
+{
+  "kind": "build_request",
+  "title": "Fix inline letter rendering and add animated letter-style tribute pages for the Sacred Six",
+  "projectName": "The Archive of Us",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Fix the HeroSection component so that the staggered letter-by-letter title reveal renders all characters inline on a single line (or wrapping naturally), not each character stacked on its own line. Ensure the animated letter spans use inline or inline-block display so words and sentences flow correctly.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4",
+          "msg-6"
+        ],
+        "quotes": [
+          "letters are separated fix it pls",
+          "Known issues: Letters/characters were rendering on separate lines instead of inline"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The hero title text renders with characters/words flowing inline, not one character per line.",
+        "Letter-by-letter animation still plays as intended.",
+        "No horizontal overflow or clipping on standard viewport widths."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a dedicated full-page 'Tribute Letters' section (or route/page) that presents each of the six friends (Tiya, Aaliya, Aaheli, Anshima, Anya, Manasvi) as a beautifully crafted handwritten-letter-style card with scroll-triggered entrance animations. Each letter must include: an emoji icon, name in gold caps, title (e.g. 'THE HEARTBINDER'), subtitle epithet, and the full heartfelt prose message provided for each person. The page must use the existing dark gold aesthetic, rich serif/display typography, and gold accent styling consistent with the rest of the site.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5",
+          "msg-6"
+        ],
+        "quotes": [
+          "take inspiration from these and write like a letter typa with beautiful animation not generic"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All six friends appear as distinct letter-style sections in the correct order: Tiya, Aaliya, Aaheli, Anshima, Anya, Manasvi.",
+        "Each section displays the emoji, name, title, subtitle, and full tribute message.",
+        "Scroll-triggered fade/slide-in entrance animation plays for each section as it enters the viewport.",
+        "Typography feels like an elegant handwritten letter — serif/display fonts, gold and warm-white tones, no generic card styling.",
+        "The section integrates into App.tsx alongside the existing sections."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement the six unique per-section background animations for the Tribute Letters page, matching the following assignments: Tiya — heartbeat pulse glow in gold; Aaliya — slow moving constellation of stars; Aaheli — golden crown outline glow effect; Anshima — gentle ripple animation that plays on text reveal; Anya — radiant warm sun glow emanating behind text; Manasvi — soft fabric-like shimmer/shimmer wave. Reuse or extend the existing TributeAnimations.tsx components where applicable. Animations must be subtle and not distract from reading the letter text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5",
+          "msg-6"
+        ],
+        "quotes": [
+          "Subtle heartbeat pulse glow behind text",
+          "Subtle moving constellation animation behind her section",
+          "Soft golden crown outline glow effect",
+          "Gentle ripple animation when text appears",
+          "Subtle radiant glow behind text",
+          "Soft fabric-like shimmer animation in background"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each of the six letter sections renders its designated animation as a background or ambient effect.",
+        "Animations are looping, subtle, and do not obscure the letter text.",
+        "Existing TributeAnimations components (heartbeat, constellation, crown, ripple) are reused or extended rather than duplicated.",
+        "No animation causes layout shifts or performance jank on scroll."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Update friendsData.ts to include the full tribute message content for each of the six friends exactly as specified by the user: Tiya (THE HEARTBINDER / The One Who Stayed), Aaliya (THE QUIET INTELLECT / She Who Thinks in Starlight), Aaheli (THE STEADFAST ONE / Guardian of Unspoken Comfort), Anshima (THE TRUTHBEARER / Soft Voice, Strong Soul), Anya (THE LIGHTBRINGER / Smile of Steady Warmth), Manasvi (THE EMBRACE / Keeper of Warmth). Ensure each object includes the title, epithet/subtitle, emoji, and multi-line tribute message as prose.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "THE HEARTBINDER",
+          "THE QUIET INTELLECT",
+          "THE STEADFAST ONE",
+          "THE TRUTHBEARER",
+          "THE LIGHTBRINGER",
+          "THE EMBRACE"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each friend object in friendsData.ts contains: name, emoji, title, subtitle/epithet, and full prose tribute message.",
+        "Text content matches the user-provided copy exactly.",
+        "Existing photo filenames and animation type assignments are preserved."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui/.",
+    "Preserve all existing sections (Hero, SacredSix, Testimony, LastPanel) and their functionality.",
+    "Maintain the existing dark gold design system — do not introduce new color palettes.",
+    "Reuse TributeAnimations.tsx components wherever possible instead of creating duplicate animation logic."
+  ],
+  "nonGoals": [
+    "No backend changes are required.",
+    "Do not replace or remove the existing TributePanel overlay functionality.",
+    "No new routing library or multi-page navigation — keep as single-page scroll.",
+    "Do not add Internet Identity authentication or any login flow."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
